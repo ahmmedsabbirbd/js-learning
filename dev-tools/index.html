@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [
+	    { 
+	    	name: 'Snickers',
+	    	age: 2 
+	    },
+	    { 
+	    	name: 'hugo',
+	    	age: 8 
+	    }
+    ];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+      const p = document.querySelector('p');
+
+    // Regular
+    console.log('hellow');
+
+    // Interpolated
+    console.log("hi, I'm sabbir%s", ". And you +po");
+
+    // Styled
+    console.log("%c Css style", "color: red");
+
+    // warning!
+    console.warn("Ohh no");
+
+    // Error :|
+    console.error("Ohh no");
+
+    // Info
+    console.info("Ohh no");
+
+    // Testing
+    console.assert(11 == 11, "worng");
+
+    const b = document.querySelector('h2');
+
+    console.assert(b,"worng")
+
+    // clearing
+// 	console.clear();
+
+    // Viewing DOM Elements
+    console.log(p);
+    console.dir(p);
+
+    // Grouping together
+    dogs.forEach(dog => {
+    	console.groupCollapsed(`This is ${dog.name}.`);
+    	console.log(`This is ${dog.name}.`);
+    	console.log(`And his age ${dog.age}.`);
+    	console.groupEnd(`This is ${dog.name}.`);
+    })
+
+    // counting
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+
+    // timing
+    console.time("time starting");
+    console.log("dsfasddfasdfasdfa");
+    console.timeEnd("time starting");
+
+    // learing other website
+    // fetch('https://api.github.com/users/wesbos')
+    // .then(data => data.json())
+    // .then(data => {
+    // 	document.write(data.following);
+    // 	console.log(data);
+    // })
+
+    // pratice of me
+    // fetch('https://api.github.com/sahmmedsabbirbd')
+    // .then(data => {
+    // 	document.write(data);
+    // })
+
+    // facebook url
+    const youtube = new URL('https://api.github.com/ahmmedsabbirbd');
+
+    // console.log(youtube);
+
+    fetch(youtube)
+    .then(responsive =>{
+    return responsive.text()
+    })
+
+    .then(data => {
+    	console.log(data);
+    })
+
+  </script>
+</body>
+</html>
