@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ES6</title>
+</head>
+<body>
+</body> 
+	 
+	
+	<script>
+		function myCalculation (a,b,c) {
+			if (b == undefined)  {
+				b = 0;
+			}
+			if (c == undefined)   {
+				c = 0;
+			}
+			plus = a+b+c;
+			console.log (plus/100);
+		}
+
+		myCalculation(125,20);
+
+
+		function myCalculation1 (a,b=0,c=0) {
+			plus = a+b+c;
+			console.log (plus/100);
+		}
+
+		myCalculation1(1250);
+
+	</script>
+</html>

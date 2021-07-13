@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ES6</title>
+</head>
+<body>
+	<style>
+		html, body {
+			height: 100%;
+		}
+
+		.wrap {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.box {
+			width: 150px;
+			height: 150px;
+			display: flex;
+			overflow: hidden;
+			background: red;
+			border-radius:  10px;
+			transition: all .3s ease;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		h2 {
+			transition:  all .3s ease;
+			transform: translateX(-250px);
+		}
+
+		p {
+			transition:  all .3s ease;
+			transform: translateX(550px);
+		}
+
+		.box-opening {
+			width: 400px;
+			height: 400px;
+		}
+
+		.box.open *{
+			transform: translateX(0px);
+		}
+	</style>
+</body>
+<div class="abcd">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, alias.</div>
+<div class="pratice fadsdfa adsfasdfas" id="hi">hi sabbir</div>
+
+	<div class="wrap">
+		<div class="box">
+			<h2>Sabbir Ahmmed</h2>
+			<p class="socail">@ahmmedsabbirbd</p>
+		</div>
+	</div>
+	
+	<script>
+		const box= document.querySelector('.box');
+		 // console.log(box);
+
+		// box.addEventListener("click", () =>{
+		// 	console.log(this);
+		// })
+
+		/*box.addEventListener("click", function(){
+			this.classList.toggle('box-opening');
+
+			var x = this;
+
+			setTimeout(function(){
+				x.classList.toggle('open');
+			},200)
+		})*/ // old script 
+
+		box.addEventListener("click", function() {
+			let opening = 'box-opening';
+			let open = 'open';
+
+			if (this.classList.contains(opening)) {
+				[opening,open] = [open,opening];
+			}
+
+			this.classList.toggle(opening);
+			console.log(this.classList);
+
+			setTimeout(()=>{
+				console.log(this);
+				this.classList.toggle(open);
+			},200)
+		})  // new script 
+
+
+
+		var a = 3;
+		var b = 4;
+
+		console.log(a,b);
+
+		[a,b] = [b,a];
+
+		console.log(a,b);
+
+
+	// my pratice 
+	const abcd = document.querySelector('.abcd');
+	console.log(abcd);
+	console.log(abcd.classList);
+	console.log(abcd.classList.contains('abd'));
+	// console.log(abcd.classList.DOMTokenList);
+
+	// my pratice 
+	const myPratice = document.querySelector('.pratice');
+
+	myPratice.addEventListener("click", function(){
+		 this.classList.add('sala');
+		console.log(this.classList);
+
+		const text = this.classList.replace('pratice','sala');
+		console.log(this.classList.replace);
+		console.log(text);
+	}) // infutue all property i learing
+
+	</script>
+</html>

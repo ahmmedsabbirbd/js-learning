@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ES6</title>
+</head>
+<body>
+	<style type="text/css">
+		.on {
+			color:  red;
+		}
+	</style>
+</body>
+	<button id="button">Click Me</button>
+	<script type="text/javascript">
+		// when you need 'this'
+			/*const button = document.querySelector('#button');
+
+				button.addEventListener('click',  () => {
+				console.log(this);
+				this.classList.add('on');
+			})*/ // is't right
+			 const button = document.querySelector('#button');
+			button.addEventListener('click',  function() {
+			this.classList.add('on');
+			})
+
+			// when you need a method to bind to an object
+			/*const person = {
+				point: 1,
+				scroe: ()=> {
+					console.log(this);
+					this.point++;
+				}
+			} */ // is't right
+			const person = {
+				point: 1,
+				scroe: function () {
+					console.log(this);
+					this.point++;
+				}
+			}
+
+			// when you need a add prototype method
+			/*class car {
+				constructor(make,color){
+					this.make = make;
+					this.color = color;
+				}
+			}
+
+			const sabbir = new car('Roayl enfieend', 'Black');
+			const sumon = new car('Yamaha', 'White');
+
+			car.prototype.summarize = ()=> {
+				console.log(this);
+				return "My favarate bike is "+ this.make+". It's color "+this.color;
+			}
+
+			console.log(sabbir.summarize());
+			console.log(sumon.summarize());*/ // is't right
+
+			class car {
+				constructor(make,color){
+					this.make = make;
+					this.color = color;
+				}
+			}
+
+			const sabbir = new car('Roayl enfieend', 'Black');
+			const sumon = new car('Yamaha', 'White');
+
+			car.prototype.final = function() {
+				// return "My favarate bike is "+ this.make+". It's color "+this.color; old script 
+				return `My favarate bike is ${this.make}. It's color ${this.color}`; // es6 & update code
+				}
+
+
+			console.log(sabbir.final());
+			console.log(sumon.final());
+
+	</script>
+</html>

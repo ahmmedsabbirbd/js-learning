@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ES6</title>
+</head>
+<body>
+	
+</body>
+	
+	<script type="text/javascript">
+		const race = '190ms';
+		const winners = ['Sabbir', 'Demmha', 'Riyad', 'Rofic'];
+
+		var winnnerlist = winners.map((winner, i) => ({
+			name: winner, race: race, place: i+1
+		}))
+		console.log(winnnerlist);
+
+		const ages = [23,34,54,43,31,12,23,12,14,15];
+
+		const agefillter = ages.filter(age => age<=20)
+		console.log(agefillter);
+	</script>
+</html>

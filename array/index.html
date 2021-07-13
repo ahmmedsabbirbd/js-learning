@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ES6</title>
+</head>
+<body>
+	
+</body>
+	
+	<script type="text/javascript">
+		const names = ['Sabbir', 'Demmha', 'Riyad', 'Rofic'];
+
+		// console.log(names);
+
+		const Fullname = names.map(function(name){
+			return `${name}`
+		})
+
+		const Fullname1 = names.map((name) =>{
+			return `${name}`
+		})
+
+		const Fullname2 = names.map(name =>{
+			return `${name}`
+		})
+
+		const Fullname3 = names.map(name => `${name}`); 
+
+		console.log(Fullname3);
+
+		const sayHellow = yourname => {
+			alert(`Hi  ${yourname}`);
+		}
+
+		sayHellow("Sabbir");
+
+	</script>
+</html>
