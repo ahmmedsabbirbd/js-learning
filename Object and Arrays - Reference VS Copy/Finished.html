@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Reference VS Copy</title>
+</head>
+<body>
+
+  <script>
+    var a = 20;
+    var b = a; 
+
+    console.log(a+ " " + b);
+
+    a = 100;
+
+    console.log(a+ " " + b);
+
+
+    const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+
+    console.log(players);
+
+    const team = players;
+
+    console.log(players, team);
+
+    players[3] = 'sabbir';
+
+    team[4] = 'jon';
+
+    console.log(players, team);
+
+    const copyAarry = [10, 20, 30, 40, 50, 60];
+
+    const copyAarry_1 = copyAarry.slice();
+
+    copyAarry[0] = 20;
+
+    console.log(copyAarry, copyAarry_1);
+
+
+
+    const copyAarry_3 = Array.from(copyAarry);
+
+    console.log(copyAarry_3); 
+
+
+    // with Objects
+    const person = {
+      name: 'Wes Bos',
+      age: 80
+    };
+
+    var object = {
+       fName:  'sabbir',
+       lName: 20,
+    }
+
+    console.log(object.fName);
+
+    console.log(typeof(object));
+
+
+    // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+
+  </script>
+
+</body>
+</html>
