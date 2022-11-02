@@ -1,0 +1,7 @@
+///Core concepts
+1. Variable (let, const) javascript var, let, const
+2. Array
+3. Conditionals
+4. Loop (while, for)
+5. Function
+6. Object
