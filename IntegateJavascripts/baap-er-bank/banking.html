@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baap Er Bank</title>
+</head>
+<body class="py-24">
+    <header class="pb-24">
+        <h1 class="text-4xl font-bold text-center">Welcome My Banking of <span class="text-lime-400">Baap Er Bank!</span></h1>
+    </header>
+
+    <main>
+        <section class="mb-20">
+            <div class="grid gap-1 grid-cols-3 w-2/4 mx-auto">
+                <div class="text-center bg-lime-400 p-10">
+                    <h2 class="font-bold mb-5">Deposit</h2>
+                    <h3 class="font-bold text-center">$<span id="deposit-balance">00</span></h3>
+                </div>
+
+                <div class="text-center bg-rose-500 p-10">
+                    <h2 class="font-bold mb-5">Withdraw</h2>
+                    <h3 class="font-bold text-center">$<span id="withdraw-balance">00</span></h3>
+                </div>
+
+                <div class="text-center bg-purple-400 p-10">
+                    <h2 class="font-bold mb-5">Balance</h2>
+                    <h3 class="font-bold text-center">$<span id="total-balance">50</span></h3>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="grid grid-cols-2 gap-1 w-2/4 mx-auto">
+                <div class="bg-lime-400 p-5">
+                    <h3 class="text-2xl font-bold mb-5">Please Deposit</h3>
+                    <input id="deposit-input" class="border-lime-400 block w-3/4 p-2 mb-5" placeholder="$00" type="text">
+                    <button id="deposit-button" class="bg-purple-400 py-3 px-10 font-bold rounded">Deposit</button>
+                </div>
+
+                <div class="bg-rose-500 p-5">
+                    <h3 class="text-2xl font-bold mb-5">Please Withdraw</h3>
+                    <input id="withdraw-input" class="border-lime-400 block w-3/4 p-2 mb-5" placeholder="$00" type="text">
+                    <button id="withdraw-button" class="bg-purple-400 py-3 px-10 font-bold rounded">Withdraw</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
