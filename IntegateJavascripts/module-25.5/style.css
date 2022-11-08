@@ -1,12 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
 
-:root{
-    /* *Font Stuff */
+:root{ 
     font-size: 15px;
     font-family: 'Lexend Deca', sans-serif;
 
-    /* *Colors */
-    /* Primary Colors */
+    /*** Colors */
     --orange: hsl(31, 77%, 52%);
     --cyan: hsl(184, 100%, 22%);
     --dark-cyan: hsl(179, 100%, 13%);
@@ -40,8 +38,8 @@ a{
 }
 
 .container{
-    width: 1440px;
-    min-height: 95vh;
+    width: 1540px;
+    min-height: 100vh;
 }
 
 @media only screen and (max-width: 1200px){
@@ -51,89 +49,83 @@ a{
 }
 
 /* *Container */
-main.container{
+.container{
+    gap: 30px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    align-items: center; 
     justify-content: center;
 }
 
 /* *Cards */
-main .cards{
+.cards{
+    gap: 30px;
     display: grid;
-    grid-template-columns: repeat(3, 300px);
+    grid-template-columns: repeat(2, 300px);
     grid-template-rows: 1fr;
 }
 
-main .cards .card{
+.cards .card{
     padding: 3rem;
 }
 
     /* Cards Header */
-main .cards .card .card-header h2{
+.cards .card .card-header h2{
     color: var(--light-gray);
+    margin-bottom: 10px;
     font-size: 2.75rem;
 }
 
+.cards .card .card-header img {
+    height: auto;
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
     /* Card Content */
-main .cards .card .card-content p{
+.cards .card .card-content p{
     color: var(--p-color);
     line-height: 1.8;
 }
-main .cards .card .card-content a{
+.cards .card .card-content a{
     display: inline-block;
     background-color: var(--light-gray);
     padding: .75rem 2rem;
-    border-radius: 50px;
-    margin-top: 5rem;
+    border-radius: 50px; 
+    margin-top: 10px;
     border: 2px solid var(--light-gray);
 }
-main .cards .card .card-content a:hover{
+.cards .card .card-content a:hover{
     background-color: transparent;
     color: var(--light-gray);
 }
 
 /* *Card Sedans */
-main .cards .card-sedans{
+.cards .card{
     background-color: var(--orange);
-    border-radius: 10px 0 0 10px;
+    border-radius: 20px;
 }
-main .cards .card-sedans .card-content a{
+.cards .card-sedans .card-content a{
     color: var(--orange);
 }
 
 /* *Card SUVs */
-main .cards .card-suvs{
+.cards .card-suvs{
     background-color: var(--cyan);
 }
-main .cards .card-suvs .card-content a{
+.cards .card-suvs .card-content a{
     color: var(--cyan);
 }
 
 /* *Card Luxury */
-main .cards .card-luxury{
+.cards .card-luxury{
     background-color: var(--dark-cyan);
     border-radius: 0 10px 10px 0;
 }
-main .cards .card-luxury .card-content a{
+.cards .card-luxury .card-content a{
     color: var(--dark-cyan);
 }
 
-/* *Footer */
-main footer{
-    margin-top: 2rem;
-}
-
-main footer .attribution{ 
-    font-size: 11px;
-    text-align: center;
-}
-main footer .attribution a{
-     color: var(--cyan);
-}
-main footer .attribution a:hover{
-     color: var(--dark-cyan);
-}
 @media only screen and (max-width: 910px){
     /* *Container */
     .container{
@@ -141,10 +133,10 @@ main footer .attribution a:hover{
     }
 
     /* *Cards */
-    main .cards{
+    .cards{
         grid-template-columns: repeat(3, 250px);
     }
-    main .cards .card{
+    .cards .card{
         padding: 2.5rem;
     }
 }
@@ -156,10 +148,10 @@ main footer .attribution a:hover{
     }
 
     /* *Cards */
-    main .cards{
+    .cards{
         grid-template-columns: repeat(3, 250px);
     }
-    main .cards .card{
+    .cards .card{
         padding: 1.5rem;
     }
 }
@@ -170,22 +162,22 @@ main footer .attribution a:hover{
     }
 
     /* *Cards */
-    main .cards{
+    .cards{
         grid-template-columns: repeat(1, 300px);
     }
 
     /* Card Content */
-    main .cards .card .card-content a{
+    .cards .card .card-content a{
         margin-top: 2rem;
     }
     
     /* *Card Sedans */
-    main .cards .card-sedans{
+    .cards .card-sedans{
         border-radius: 10px 10px 0 0;
     }
 
     /* *Card Luxury */
-    main .cards .card-luxury{
+    .cards .card-luxury{
         border-radius: 0 0 10px 10px;
     }
 
@@ -215,12 +207,7 @@ body {
   background: #4CAF50;
 }
 
-.container {
-  max-width: 400px;
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-}
+ 
 
 #contact input[type="text"],
 #contact input[type="email"],
@@ -235,6 +222,8 @@ body {
   background: #F9F9F9;
   padding: 25px;
   margin: 150px 0;
+  width: 350px;
+  max-width: 100%;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
@@ -335,4 +324,35 @@ fieldset {
 
 :-ms-input-placeholder {
   color: #888;
+}
+
+/* modal */
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+.modal {
+    z-index: 9999;
+    position: absolute; 
+}
+
+.overly {
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    content: "";
+    width: 100%;
+    background: #fff;
+    position: absolute;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+button[disabled] {
+    background: #bbd3bc  !important;
+    cursor: context-menu !important;
 }
