@@ -15,37 +15,33 @@ if (submitButton) {
     });
 }
 
-// handle deposit method
-const depositButton = document.getElementById('deposit-button');
-const depositInput = document.getElementById('deposit-input');
-const depositBalance = document.getElementById('deposit-balance');
-const totalBalance = document.getElementById('total-balance');
+function getInput (input, balanceDeWi) {
+    const inputNumber = document.getElementById(input);
+    const balance = document.getElementById(balanceDeWi);
+    const totalBalance = document.getElementById('total-balance');
+    
+    let balanceNumber = parseFloat(balance.innerText);
+    const tempuraryBalanceNumber = parseFloat(inputNumber.value);
+    balance.innerText = balanceNumber += tempuraryBalanceNumber;
+    inputNumber.value = '';
 
-depositButton.addEventListener('click', function(){
-    // Deposit Balance
-    let depositBalanceNumber = parseFloat(depositBalance.innerText);
-    const tempuraryDepositBalanceNumber = parseFloat(depositInput.value);
-    depositBalance.innerText = depositBalanceNumber += tempuraryDepositBalanceNumber;
-    depositInput.value = '';
+    return [tempuraryBalanceNumber, totalBalance];
+}
 
+// handle deposit method 
+document.getElementById('deposit-button').addEventListener('click', function(){
+    const [tempuraryDepositBalanceNumber, totalBalance] = getInput('deposit-input', 'deposit-balance');
+    
     // Deposit Balance + Total Balance 
     let totalBalanceNumber = parseFloat(totalBalance.innerText);
     totalBalance.innerText = totalBalanceNumber += tempuraryDepositBalanceNumber;
 })
 
 // handle withdraw method 
-const withdrawBalance = document.getElementById('withdraw-balance');
-const withdrawInput = document.getElementById('withdraw-input');
-const withdrawButton = document.getElementById('withdraw-button');
-
-withdrawButton.addEventListener('click', function(){
-    // Withdraw Balance
-    let withdrawBalanceNumber = parseFloat(withdrawBalance.innerText);
-    const tempuraryWithdrawBalanceNumber = parseFloat(withdrawInput.value);
-    withdrawBalance.innerText = withdrawBalanceNumber += tempuraryWithdrawBalanceNumber;
-    withdrawInput.value = '';
-
-    // Withdraw Balance - Total Balance 
+document.getElementById('withdraw-button').addEventListener('click', function(){
+    const [tempuraryWithdrawBalanceNumber, totalBalance] = getInput('withdraw-input', 'withdraw-balance');
+    
+    // Withdraw Balance - Total Balance  
     let totalBalanceNumber = parseFloat(totalBalance.innerText);
     totalBalance.innerText = totalBalanceNumber -= tempuraryWithdrawBalanceNumber;
 })
