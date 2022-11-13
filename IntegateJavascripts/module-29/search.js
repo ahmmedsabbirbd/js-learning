@@ -36,7 +36,7 @@ for(product of products1) {
 
 // console.log(output1);
 
-// Method 3 startsWith()
+// Method 3 startsWith() and endsWith()
 const products2 = [
     'vivo 4gb 64gb Led ',
     'dell symphony  1gb 8gb led lower bugget',
