@@ -7,4 +7,10 @@ const sortNumbers = numbers.sort();
 const friends = ['sabbir', 'oishi', 'mamun', 'alim'];
 // const sortFriends = friends.sort();
 const reversFriends = friends.reverse();
-console.log(reversFriends);
+
+
+const funFuNmbers = [12, 42, 11, 32, 9, 23, 52];
+const sortFunNumber = funFuNmbers.sort(function(a, b){
+    return a - b;
+});
+console.log(sortFunNumber)
