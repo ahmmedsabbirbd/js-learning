@@ -73,4 +73,30 @@ const loadPopup = (country) => {
     });
 }
 
-// loadCountries
+// searchFood
+const searchFoods = () => {
+    const searchInput = document.getElementById('search-input');
+    let searchText = searchInput.value;
+    
+    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
+
+    console.log(url);
+    
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayFoods(data.meals))
+    
+    searchInput.value = '';
+}
+
+const displayFoods = data => {
+    data.forEach(food => {
+        console.log(food);
+        const div = document.createElement('div');
+        div.classList.add('food', 'block', 'p-6', 'bg-white', 'border', 'border-gray-200', 'rounded-lg', 'shadow-md', 'hover:bg-gray-100', 'dark:bg-gray-800', 'dark:border-gray-700', 'dark:hover:bg-gray-700');
+        div.innerHTML = `<img style='height: 300px' src=${food.strMealThumb} >
+        <h5 class="mb-2 mt-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${food.strMeal}</h5>
+        <p class="font-normal text-gray-700 dark:text-gray-400">${food.strInstructions.slice(1, 200)}</p>`;
+        document.getElementById('foods').appendChild(div);
+    })
+}
