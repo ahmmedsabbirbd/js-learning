@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Example</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* modal */
+        body {
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .modal {
+            top: 50%;
+            left: 50%;
+            z-index: 9999;
+            position: fixed; 
+            overflow: hidden;
+            text-align: center;
+            transform: translate(-50%, -50%);
+        }
+
+        .overly {
+            top: 0;
+            z-index: 1;
+            height: 100%;
+            content: "";
+            width: 100%;
+            background: #fff;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="text-5xl font-bold mb-5 text-yellow-500">Kaniya Qutoe</h2>
+    <blockquote id="quote" class="mb-10"></blockquote>
+
+    <h2 class="text-5xl font-bold mb-5 text-yellow-500">Countries</h2>
+    <div id="countries" class="grid grid-cols-5 gap-10"></div>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
