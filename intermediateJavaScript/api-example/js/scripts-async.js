@@ -117,11 +117,16 @@ const displayFoods = data => {
     }
 }
 
-const foodDetails = (foodId) => {
+const foodDetails = async (foodId) => {
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${foodId}`;
-    fetch(url)
-    .then(res => res.json())
-    .then(data => loadFood(data.meals[0]))
+    
+    const res = await fetch(url);
+    const data = await res.json();
+    loadFood(data.meals[0]);
+
+    // fetch(url)
+    // .then(res => res.json())
+    // .then(data => loadFood(data.meals[0]))
 }
 
 const loadFood = (food) => {
