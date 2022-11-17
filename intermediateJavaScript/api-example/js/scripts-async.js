@@ -88,7 +88,8 @@ const searchFoods = () => {
     } else {
         fetch(url)
         .then(res => res.json())
-        .then(data => displayFoods(data.meals));
+        .then(data => displayFoods(data.meals))
+        .catch(err => console.log(err));
     }
 
     searchInput.value = '';
@@ -120,9 +121,14 @@ const displayFoods = data => {
 const foodDetails = async (foodId) => {
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${foodId}`;
     
-    const res = await fetch(url);
-    const data = await res.json();
-    loadFood(data.meals[0]);
+    try{
+        const res = await fetch(url);
+        const data = await res.json();
+        loadFood(data.meals[0]);
+    } 
+    catch(err) {
+        console.log(err);
+    }
 
     // fetch(url)
     // .then(res => res.json())
