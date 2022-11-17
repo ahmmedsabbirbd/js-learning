@@ -79,8 +79,6 @@ const searchFoods = () => {
     let searchText = searchInput.value;
     
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
-
-    console.log(url);
     
     fetch(url)
     .then(res => res.json())
@@ -90,13 +88,46 @@ const searchFoods = () => {
 }
 
 const displayFoods = data => {
+    document.getElementById('foods').innerHTML = '';
+
     data.forEach(food => {
-        console.log(food);
         const div = document.createElement('div');
         div.classList.add('food', 'block', 'p-6', 'bg-white', 'border', 'border-gray-200', 'rounded-lg', 'shadow-md', 'hover:bg-gray-100', 'dark:bg-gray-800', 'dark:border-gray-700', 'dark:hover:bg-gray-700');
         div.innerHTML = `<img style='height: 300px' src=${food.strMealThumb} >
         <h5 class="mb-2 mt-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${food.strMeal}</h5>
-        <p class="font-normal text-gray-700 dark:text-gray-400">${food.strInstructions.slice(1, 200)}</p>`;
+        <p class="font-normal text-gray-700 dark:text-gray-400">${food.strInstructions.slice(0, 200)}</p>
+        <button onclick="foodDetails('${food.idMeal}')" class="p-3 mt-5 text-white font-bold rounded-full bg-yellow-700">Details More</button>`;
+        
         document.getElementById('foods').appendChild(div);
-    })
+    });
+}
+
+const foodDetails = (foodId) => {
+    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${foodId}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(data => loadFood(data.meals[0]))
+}
+
+const loadFood = (food) => {
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+    const overly = document.createElement('div');
+    overly.classList.add('overly');
+
+    modal.innerHTML = `<img style='height: 500px; margin: auto;' src=${food.strMealThumb} >
+    <h5 class="mb-2 mt-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${food.strMeal}</h5>
+    <p class="font-normal text-gray-700 dark:text-gray-400">${food.strInstructions}</p>
+        <button id="close-button" class="p-3 mt-5 text-white font-bold rounded-full bg-yellow-700">Close Modal</button>`;
+
+    document.body.appendChild(modal);
+    document.body.prepend(overly);
+    document.body.style.overflow = 'hidden';
+    
+    const closeButton = document.getElementById('close-button');
+    closeButton.addEventListener('click', function(e){
+        document.body.removeChild(e.target.parentNode);
+        document.body.removeChild(overly);
+        document.body.style.overflow = 'auto';
+    });
 }
