@@ -72,9 +72,19 @@ const loadPopup = (country) => {
         document.body.style.overflow = 'auto';
     });
 }
+// Spinner
+const spinnerToggler = displayStyle => {
+    document.getElementById('spinner').style.display = displayStyle;
+}
+// search result
+const searchResult = displayStyle => {
+    document.getElementById('spinner').style.display = displayStyle;
+}
 
 // searchFood
 const searchFoods = () => {
+    spinnerToggler('block');
+
     const searchInput = document.getElementById('search-input');
     let searchText = searchInput.value;
     
@@ -93,11 +103,10 @@ const searchFoods = () => {
     }
 
     searchInput.value = '';
+    document.getElementById('foods').innerText = '';
 }
 
 const displayFoods = data => {
-    document.getElementById('foods').innerHTML = '';
-
     if(data) {
         data.forEach(food => {
             const div = document.createElement('div');
@@ -116,6 +125,8 @@ const displayFoods = data => {
         
         document.getElementById('foods').appendChild(div);
     }
+
+    spinnerToggler('none');
 }
 
 const foodDetails = async (foodId) => {
