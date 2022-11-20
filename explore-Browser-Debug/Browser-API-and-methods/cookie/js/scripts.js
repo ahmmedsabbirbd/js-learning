@@ -41,3 +41,39 @@
 // addCart.newitem = 2;
 
 // console.log(addCart);
+
+// function bake_cookie(name, value) {
+//     var cookie = [name, '=', JSON.stringify(value), '; domain=.', window.location.host.toString(), '; path=/;'].join('');
+//     document.cookie = cookie;
+// }
+
+// bake_cookie('car', 3);
+
+const getCart = () => {
+    const cart = localStorage.getItem('cart');
+    let carObj;
+
+    if(cart) {
+        carObj = JSON.parse(cart);
+    } else {
+        carObj = {};
+    }
+
+    return carObj;
+}
+const addProductCart = name => {
+    const cart = getCart();
+    console.log(cart);
+    
+    if(cart[name]) {
+        cart[name] += 1;
+    } else {
+        cart[name] = 1;
+    }
+
+    const cartStingify = JSON.stringify(cart);
+
+    console.log(cartStingify);
+
+    localStorage.setItem('cart', cartStingify);
+}
