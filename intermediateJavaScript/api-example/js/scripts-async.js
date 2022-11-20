@@ -168,3 +168,5 @@ const loadFood = (food) => {
         document.body.style.overflow = 'auto';
     });
 }
+
+console.log(this)
