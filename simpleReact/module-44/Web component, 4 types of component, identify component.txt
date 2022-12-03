@@ -1,1 +1,5 @@
 Web component, 4 types of component, identify component
+1. similar in loop defrent in data component
+2. container component
+3. onek component ke aladada rakha
+4. stated alone component
